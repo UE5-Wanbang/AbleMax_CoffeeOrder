@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>☕ 이디야 커피 단체 주문</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800&display=swap');
+        body { 
+            font-family: 'Pretendard', sans-serif; 
+            background-color: #f8fafc; 
+        }
+        .ediya-blue { background-color: #002d5e; }
+        .ediya-text { color: #002d5e; }
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23002d5e' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+        }
+    </style>
+</head>
+<body class="pb-20">
+
+    <header class="ediya-blue text-white py-6 px-4 shadow-lg text-center">
+        <h1 class="text-2xl font-bold">EDIYA COFFEE</h1>
+        <p class="text-sm opacity-80 mt-1">단체 주문 시스템</p>
+    </header>
+
+    <main class="max-w-md mx-auto mt-6 px-4">
+        <section class="bg-white p-6 rounded-2xl shadow-sm mb-6">
+            <h2 class="text-lg font-bold mb-4 ediya-text">👤 주문자 정보</h2>
+            <div class="space-y-4">
+                <input type="text" id="userName" placeholder="성함을 입력하세요 (필수)" 
+                       class="w-full border-b-2 border-gray-100 py-2 outline-none focus:border-blue-900 transition-all">
+                <input type="text" id="userDept" placeholder="부서/팀명 (선택)" 
+                       class="w-full border-b-2 border-gray-100 py-2 outline-none focus:border-blue-900 transition-all">
+            </div>
+        </section>
+
+        <section class="bg-white p-6 rounded-2xl shadow-sm">
+            <h2 class="text-lg font-bold mb-4 ediya-text">☕ 메뉴 선택</h2>
+            
+            <div class="space-y-2">
+                <label class="block text-sm font-medium text-gray-600 mb-1">메뉴를 선택하세요</label>
+                <select id="menuSelect" 
+                        class="w-full border-2 border-gray-200 rounded-xl p-4 text-base focus:border-blue-900 outline-none transition-all">
+                    <!-- 카테고리별 메뉴 -->
+                    <optgroup label="☕ COFFEE (커피)">
+                        <option value="카페 아메리카노">카페 아메리카노</option>
+                        <option value="뉴아메리카노">뉴아메리카노 / 달달커피</option>
+                        <option value="헤이즐넛 아메리카노">헤이즐넛 아메리카노</option>
+                        <option value="꿀화이트 아메리카노">꿀화이트 아메리카노</option>
+                        <option value="카페 라떼">카페 라떼</option>
+                        <option value="카푸치노">카푸치노</option>
+                        <option value="바닐라 라떼">바닐라 라떼</option>
+                        <option value="연유 카페 라떼">연유 카페 라떼</option>
+                        <option value="카라멜 마끼아또">카라멜 마끼아또</option>
+                        <option value="카페 모카">카페 모카</option>
+                        <option value="화이트 초콜릿 모카">화이트 초콜릿 모카</option>
+                        <option value="민트 모카">민트 모카</option>
+                        <option value="넛츠 크림 라떼">넛츠 크림 라떼 / 시그니처 라떼</option>
+                        <option value="아포가토">아포가토 (오리지널)</option>
+                        <option value="디카페인 아포가토">아포가토 (디카페인)</option>
+                        <option value="토피넛 라떼">토피넛 라떼 (시그니처)</option>
+                        <option value="콜드브루 아메리카노">콜드브루 아메리카노</option>
+                        <option value="콜드브루 라떼">콜드브루 라떼</option>
+                        <option value="콜드브루 니트로">콜드브루 니트로</option>
+                        <option value="흑당 콜드브루">흑당 콜드브루</option>
+                        <option value="연유 콜드브루">연유 콜드브루</option>
+                        <option value="콜드브루 화이트 비엔나">콜드브루 화이트 비엔나</option>
+                        <option value="콜드브루 크림넛">콜드브루 크림넛</option>
+                        <option value="아인슈페너">아인슈페너</option>
+                        <option value="디카페인 아메리카노">디카페인 아메리카노</option>
+                        <option value="디카페인 콜드브루 라떼">디카페인 콜드브루 라떼</option>
+                    </optgroup>
+
+                    <optgroup label="🥛 BEVERAGE (논커피 / 밀크 베버리지)">
+                        <option value="달고나 라떼">달고나 라떼</option>
+                        <option value="흑당 라떼">흑당 라떼</option>
+                        <option value="버블 흑당 라떼">버블 흑당 라떼</option>
+                        <option value="초콜릿">초콜릿</option>
+                        <option value="민트 초콜릿">민트 초콜릿</option>
+                        <option value="화이트 초콜릿">화이트 초콜릿</option>
+                        <option value="녹차 라떼">녹차 라떼</option>
+                        <option value="말차 라떼">말차 라떼</option>
+                        <option value="말차 초코 라떼">말차 초코 라떼</option>
+                        <option value="12곡 라떼">12곡 라떼 / 미숫가루 라떼</option>
+                        <option value="고구마 라떼">고구마 라떼</option>
+                        <option value="버블 크림 밀크티">버블 크림 밀크티</option>
+                        <option value="멜팅 피스타치오">멜팅 피스타치오</option>
+                        <option value="너티 초콜릿">너티 초콜릿</option>
+                        <option value="딸기 라떼">딸기 라떼</option>
+                    </optgroup>
+
+                    <optgroup label="🍵 BLENDING TEA (티 / 전통차)">
+                        <option value="스프링 캐모마일 티">스프링 캐모마일 티</option>
+                        <option value="두르쿤 애플 캐모마일 티">두르쿤 애플 캐모마일 티</option>
+                        <option value="샤인 히비스커스 티">샤인 히비스커스 티</option>
+                        <option value="퓨어 페퍼민트 티">퓨어 페퍼민트 티</option>
+                        <option value="피치 얼그레이 티">피치 얼그레이 티</option>
+                        <option value="그린 루이보스 티">그린 루이보스 티</option>
+                        <option value="쌍화차">쌍화차</option>
+                        <option value="생강차">생강차</option>
+                        <option value="배모과차">배모과차</option>
+                        <option value="밀크티">밀크티 / 로얄 밀크티</option>
+                        <option value="복숭아 아이스티">복숭아 아이스티</option>
+                        <option value="제로슈가 아이스티">제로슈가 아이스티</option>
+                        <option value="레몬 아이스티">레몬 아이스티</option>
+                        <option value="아샷추">아샷추 (복숭아)</option>
+                        <option value="유자차">유자차</option>
+                        <option value="자몽차">자몽차</option>
+                        <option value="레몬차">레몬차</option>
+                        <option value="석류차">석류차</option>
+                    </optgroup>
+
+                    <optgroup label="❄️ FLATCCINO (플랫치노)">
+                        <option value="초콜릿 칩 플랫치노">초콜릿 칩 플랫치노</option>
+                        <option value="민트 초콜릿 칩 플랫치노">민트 초콜릿 칩 플랫치노</option>
+                        <option value="토피넛 플랫치노">토피넛 플랫치노</option>
+                        <option value="꿀복숭아 플랫치노">꿀복숭아 플랫치노</option>
+                        <option value="망고 플랫치노">망고 플랫치노</option>
+                        <option value="유자몽 플랫치노">유자몽 플랫치노</option>
+                        <option value="플레인 요거트 플랫치노">플레인 요거트 플랫치노</option>
+                        <option value="딸기 요거트 플랫치노">딸기 요거트 플랫치노</option>
+                        <option value="블루베리 요거트 플랫치노">블루베리 요거트 플랫치노</option>
+                    </optgroup>
+
+                    <optgroup label="🥤 SHAKE & ADE">
+                        <option value="오리진 쉐이크">오리진 쉐이크</option>
+                        <option value="초코쿠키 쉐이크">초코쿠키 쉐이크</option>
+                        <option value="딸기 쉐이크">딸기 쉐이크</option>
+                        <option value="말차 초코 쉐이크">말차 초코 쉐이크</option>
+                        <option value="자몽 포멜로 에이드">자몽 포멜로 에이드</option>
+                        <option value="꿀복숭아 에이드">꿀복숭아 에이드</option>
+                        <option value="머스캣 모히또 에이드">머스캣 모히또 에이드</option>
+                        <option value="팽도리 블루애플 에이드">팽도리 블루애플 에이드</option>
+                        <option value="피카츄 애플베리 셔벗">피카츄 애플베리 셔벗</option>
+                    </optgroup>
+
+                    <optgroup label="🍧 기타 (빙수, RTD, 디저트)">
+                        <option value="초코 빙수">초코 빙수</option>
+                        <option value="팥 빙수">팥 빙수</option>
+                        <option value="이브이 버터스카치 슈페너">이브이 버터스카치 슈페너</option>
+                        <option value="프루츠 스파클링 사과">프루츠 스파클링 사과 (병)</option>
+                    </optgroup>
+                </select>
+            </div>
+        </section>
+    </main>
+
+    <!-- 기존 모달 그대로 유지 -->
+    <div id="orderModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-end z-50">
+        <div class="bg-white w-full rounded-t-3xl p-6 animate-slide-up">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="selectedMenuName" class="text-xl font-bold ediya-text">메뉴명</h3>
+                <button onclick="closeModal()" class="text-gray-400 text-3xl leading-none">&times;</button>
+            </div>
+            
+            <div class="space-y-6">
+                <div>
+                    <p class="text-sm font-semibold mb-2">온도</p>
+                    <div class="flex gap-2">
+                        <button onclick="setTemp('ICED')" class="temp-btn flex-1 py-3 rounded-xl border-2 border-blue-100" id="btnICED">ICED</button>
+                        <button onclick="setTemp('HOT')" class="temp-btn flex-1 py-3 rounded-xl border-2 border-blue-100" id="btnHOT">HOT</button>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="text-sm font-semibold mb-2">사이즈</p>
+                    <div class="flex gap-2">
+                        <button onclick="setSize('L')" class="size-btn flex-1 py-3 rounded-xl border-2 border-blue-100" id="btnSizeL">L (기본)</button>
+                        <button onclick="setSize('EX')" class="size-btn flex-1 py-3 rounded-xl border-2 border-blue-100" id="btnSizeEX">EX (엑스트라)</button>
+                    </div>
+                </div>
+
+                <input type="text" id="extraReq" placeholder="기타 요청사항 (샷추가, 연하게, 디카페인 등)" 
+                       class="w-full bg-gray-50 p-4 rounded-xl outline-none focus:ring-2 focus:ring-blue-900">
+
+                <button onclick="submitOrder()" 
+                        class="w-full ediya-blue text-white py-4 rounded-xl font-bold text-lg shadow-lg active:scale-95 transition-transform">
+                    주문 완료하기
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentOrder = { 
+            name: '', 
+            dept: '', 
+            menu: '', 
+            temp: 'ICED', 
+            size: 'L', 
+            extra: '' 
+        };
+
+        const menuSelect = document.getElementById('menuSelect');
+
+        function openModal() {
+            const selectedValue = menuSelect.value;
+            if (!selectedValue) {
+                alert("메뉴를 선택해주세요!");
+                return;
+            }
+            currentOrder.menu = selectedValue;
+            document.getElementById('selectedMenuName').innerText = selectedValue;
+            document.getElementById('orderModal').classList.remove('hidden');
+            setTemp('ICED');
+            setSize('L');
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').classList.add('hidden');
+        }
+
+        function setTemp(t) {
+            currentOrder.temp = t;
+            document.querySelectorAll('.temp-btn').forEach(b => {
+                b.classList.remove('bg-blue-900', 'text-white', 'border-blue-900');
+            });
+            document.getElementById('btn' + t).classList.add('bg-blue-900', 'text-white', 'border-blue-900');
+        }
+
+        function setSize(s) {
+            currentOrder.size = s;
+            document.querySelectorAll('.size-btn').forEach(b => {
+                b.classList.remove('bg-blue-900', 'text-white', 'border-blue-900');
+            });
+            document.getElementById('btnSize' + s).classList.add('bg-blue-900', 'text-white', 'border-blue-900');
+        }
+
+        async function submitOrder() {
+            currentOrder.name = document.getElementById('userName').value.trim();
+            currentOrder.dept = document.getElementById('userDept').value.trim();
+            currentOrder.extra = document.getElementById('extraReq').value.trim();
+
+            if (!currentOrder.name) {
+                alert("성함을 입력해 주세요!");
+                return;
+            }
+            if (!currentOrder.menu) {
+                alert("메뉴를 선택해 주세요!");
+                return;
+            }
+
+            const GAS_URL = "https://script.google.com/macros/s/AKfycbxE-jpbZ29tk6RaT7aNQ1g974dDsimS8A1H-w-DKKEOozDaecLuTAKByAZBYyiU8t3l/exec";
+
+            try {
+                const response = await fetch(GAS_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(currentOrder)
+                });
+
+                console.log("전송 성공!");
+                alert("✅ 주문이 완료되었습니다!\n구글 시트를 확인하세요.");
+                closeModal();
+
+                // 초기화
+                document.getElementById('extraReq').value = '';
+                // menuSelect.selectedIndex = 0; // 필요시 주석 해제
+            } catch (error) {
+                console.error("전송 에러:", error);
+                alert("전송 실패: " + error.message);
+            }
+        }
+
+        // 드롭다운 변경 시 자동으로 모달 열기 (원하시면 주석 처리 가능)
+        menuSelect.addEventListener('change', openModal);
+    </script>
+
+    <style>
+        @keyframes slide-up {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+        .animate-slide-up { animation: slide-up 0.3s ease-out; }
+    </style>
+</body>
+</html>
